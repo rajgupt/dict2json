@@ -6,7 +6,8 @@ namespace eval ::json::write {
 
         set accumulate {}
         
-        foreach {key value} [dict get $mydict] {
+        dict for {key value} $mydict {
+            puts $key
             if { [llength $value] > 1 } {
                 lappend accumulate $key [dict2json $value]
             } else {
